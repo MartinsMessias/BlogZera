@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block conteudo %}
+<!-- Exibição de todas as postagens -->
+{% for dado in dados %}
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="{% url 'post_blog' dado.id %}">
+            <h2 class="post-title">
+              {{ dado.titulo }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ dado.texto | slice:":255" }}
+            </h3>
+          </a>
+          <p class="post-meta">Postado por
+            <a href="#">{{ dado.autor }}</a>
+            em {{ dado.data_publicacao }}</p>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+{% endblock %}

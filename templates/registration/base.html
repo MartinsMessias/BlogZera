@@ -1,0 +1,73 @@
+{% load static %}
+<html lang="br">
+<head>
+    <link rel="stylesheet" href="{% static 'css/login-page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/clean-blog.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: rgba(108, 117, 125, 0.48);">
+    <div class="container" align="center">
+        <a class="navbar-brand" href="/">BlogZêra</a>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-lg-8 mx-auto"><br>
+                            {% block conteudo %}{% endblock %}
+                        </div>
+                    </div>
+                    <!-- Footer -->
+                    <footer>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-md-10 mx-auto">
+                                    <ul class="list-inline text-center">
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <span class="fa-stack fa-lg">
+                                                  <i class="fas fa-circle fa-stack-2x"></i>
+                                                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <p class="copyright text-muted">Copyright &copy; Messias Martins 2019</p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Custom scripts for this template -->
+</html>

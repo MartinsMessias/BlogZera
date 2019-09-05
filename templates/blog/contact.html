@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+
+{% block titulo_principal %}Contato{% endblock %}
+{% block infos_post %}Entre em contato com a gente.{% endblock %}
+
+{% block conteudo %}
+
+  <!-- Conteúdo principal de 'contato' -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Quer entrar em contato? Preencha o formulário abaixo para me enviar uma mensagem e retornaremos o mais breve possível!</p>
+        <form name="sentMessage" id="contactForm" novalidate>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Nome</label>
+              <input type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Por favor digite seu nome.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Email</label>
+              <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor digite seu endereço de email.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label>Telefone</label>
+              <input type="tel" class="form-control" placeholder="Número de telefone" id="phone" required data-validation-required-message="Por favor digite seu telefone.">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Mensagem</label>
+              <textarea rows="5" class="form-control" placeholder="Sua mensagem" id="message" required data-validation-required-message="Por favor digite uma mensagem."></textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Enviar</button>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

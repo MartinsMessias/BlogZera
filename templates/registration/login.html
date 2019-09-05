@@ -1,0 +1,42 @@
+{% extends 'registration/base.html' %}
+{% load tags %}
+
+
+{% block conteudo %}
+<h3 class="login-heading mb-4">Bem vindo(a)!</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="form-label-group">
+        {{ form.username | addclass:'form-control'  }}
+        <label for="inputUser">Usuário</label>
+    </div>
+
+    <div class="form-label-group">
+        {{ form.password | addclass:'form-control'  }}
+        <label for="inputPassword">Senha</label>
+    </div>
+
+    <div class="custom-control custom-checkbox mb-3">
+        <input type="checkbox" class="custom-control-input" id="customCheck1">
+        <label class="custom-control-label" for="customCheck1">Relembre-me</label>
+    </div>
+    <button class="btn btn-lg btn-secondary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Entrar</button>
+    <div class="text-center">
+        <a class="small" href="{% url 'password_reset' %}">Esqueceu a senha?</a>
+        {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% comment %}   Título da postagem   {% endcomment %}
+{% block titulo_principal %} {{ dados.titulo }} {% endblock %}
+
+{% comment %}   Infos da postagem   {% endcomment %}
+{% block infos_post %}
+<p class="post-meta">
+    Postado por <a href="#">{% block autor %}{{ dados.autor }}{% endblock %}</a>
+    em {% block data_post %} em {{ dados.data_publicacao }}{% endblock %}
+</p>
+{% endblock %}
+
+
+{% comment %} Conteúdo da postagem {% endcomment %}
+{% block conteudo %}
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{ dados.texto }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+  <hr>
+{% endblock %}

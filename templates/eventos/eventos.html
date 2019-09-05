@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+
+{% block conteudo %}
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h3>Agenda de Eventos</h3>
+        </div>
+        <div class="card-body">
+            {% if events|length > 0 %}
+                <table class="table table-sm table-responsive-sm">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Data ida</th>
+                        <th>Data volta</th>
+                        <th>Evento</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>
+                                <a class="text-dark" href="">
+                                    {{ event.data_ida|date:"d/m/Y" }}
+                                </a>
+                            </td>
+                            <td>
+                                <a class="text-dark" href="">
+                                    {{ event.data_volta|date:"d/m/Y" }}
+                                </a>
+                            </td>
+                            <td class="text-truncate">
+                                <a class="text-dark" href="">{{ event.titulo }}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <p>Você tem {{ total }} evento{{ total|pluralize }} registrado{{ total|pluralize }}.</p>
+            {% else %}
+                <div class="alert alert-secondary text-center">
+                    Sem eventos cadastrados.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

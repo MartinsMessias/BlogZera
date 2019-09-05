@@ -1,0 +1,9 @@
+venv
+*.pyc
+staticfiles/
+.env
+*.sqlite3
+Include/
+Scripts/
+.idea
+Lib/
