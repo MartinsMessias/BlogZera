@@ -137,5 +137,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Simplified static file serving.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
+try:
+    # Activate Django-Heroku.
+    django_heroku.settings(locals())
+except:
+    pass
