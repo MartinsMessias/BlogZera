@@ -1,2 +1,4 @@
 # BlogZera
-Simple blog made with Django
+##### Simple blog made with Django
+
+
