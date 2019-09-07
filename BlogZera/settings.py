@@ -1,4 +1,5 @@
 import os
+from django.core.management.utils import get_random_secret_key
 
 try:
     import django_heroku
@@ -17,7 +18,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = get_random_secret_key()
 
 DEBUG = True
 
@@ -40,10 +41,10 @@ INSTALLED_APPS = [
 
 # Email vars
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Only backend
-EMAIL_HOST = os.environ['EMAIL_HOST']
+EMAIL_HOST = 'EMAIL_HOST'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = 'EMAIL_HOST_USER'
+EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'WebSite19 Team <noreply@website19.com>'
 
@@ -57,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'website.urls'
+ROOT_URLCONF = 'BlogZera.urls'
 
 TEMPLATES = [
     {
@@ -79,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'website.wsgi.application'
+WSGI_APPLICATION = 'BlogZera.wsgi.application'
 
 
 # Database
@@ -128,14 +129,17 @@ STATICFILES_DIRS = (
 )
 
 # Change 'default' database configuration with $DATABASE_URL.
-DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
-
+try:
+    DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
+    # Simplified static file serving.
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+except:
+    pass
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Simplified static file serving.
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 try:
     # Activate Django-Heroku.
